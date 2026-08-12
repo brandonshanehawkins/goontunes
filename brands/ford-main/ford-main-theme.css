@@ -1,0 +1,117 @@
+/* ==========================================================================
+   THEME OVERRIDES FOR FORD MAIN BRAND - BUILT FOR MOTION
+   ========================================================================== */
+
+/* 1. Local FordMotion Fonts Declaration */
+@font-face {
+  font-family: 'FordMotion';
+  src: url('assets/f1/regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FordMotion';
+  src: url('assets/f1/medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FordMotion';
+  src: url('assets/f1/semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FordMotion';
+  src: url('assets/f1/bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FordMotion';
+  src: url('assets/f1/light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer theme {
+  :root {
+    /* Colors (Ford Blue, Deep Blue, Silver, Canvas, and White) */
+    --mcs-color-primary: #003399;          /* Ford Blue */
+    --mcs-color-primary-hover: #002266;    /* Dark Blue */
+    --mcs-color-secondary: #E6E6E6;        /* Ford Silver */
+    --mcs-color-tertiary: #FFFFFF;         /* White container */
+    --mcs-color-background: #F5F5F5;       /* Soft Light Canvas */
+    --mcs-color-surface: #FFFFFF;          /* Surface panel */
+    --mcs-color-surface-hover: #F0F0F0;    /* Hovered surface */
+    --mcs-color-border: #D1D1D1;           /* Muted grey line */
+    --mcs-color-text: #1A1A1A;             /* Dark text */
+    --mcs-color-text-muted: #5F6368;       /* Slate captions */
+    --mcs-color-text-on-primary: #FFFFFF;  /* White on Ford Blue */
+
+    /* Typography settings */
+    --mcs-font-display: 'FordMotion', 'Arial', sans-serif;
+    --mcs-font-body: 'FordMotion', 'Arial', sans-serif;
+
+    /* Shape & Borders (Subtle modern rounding) */
+    --mcs-border-width: 1px;
+    --mcs-border-radius-sm: 4px;
+    --mcs-border-radius-md: 6px;
+    --mcs-border-radius-lg: 10px;
+    --mcs-border-radius-xl: 16px;
+    
+    /* Soft retail web shadows */
+    --mcs-shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --mcs-shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --mcs-shadow-lg: 0 12px 24px rgba(0,0,0,0.12);
+    
+    /* Typography weights */
+    --mcs-font-weight-display: 700;       /* FordMotion Bold */
+    --mcs-font-weight-headline: 700;      /* FordMotion Bold */
+    
+    --mcs-line-height-display: 1.2;
+    --mcs-line-height-headline: 1.2;
+  }
+}
+
+/* ==========================================================================
+   FORD MAIN BRAND-SPECIFIC COMPONENTS
+   ========================================================================== */
+@layer components {
+  /* Retail vehicle card or configure block styling */
+  .ford-retail-card {
+    background-color: var(--mcs-color-surface);
+    border: 1px solid var(--mcs-color-border);
+    border-radius: var(--mcs-border-radius-md);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .ford-retail-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--mcs-shadow-md);
+  }
+
+  /* Retail CTA Button with slight slant or standard button styling */
+  .ford-button-configure {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--mcs-border-radius-full); /* pill button */
+    padding: 10px 24px;
+    background-color: var(--mcs-color-primary);
+    color: var(--mcs-color-text-on-primary);
+    transition: background-color 0.2s ease;
+  }
+  .ford-button-configure:hover {
+    background-color: var(--mcs-color-primary-hover);
+  }
+}

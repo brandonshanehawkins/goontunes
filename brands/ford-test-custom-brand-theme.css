@@ -1,0 +1,40 @@
+/* 
+  Modular Construction System (MCS) — Brand Theme Stylesheet
+  Generated dynamically by Theme-Architect inside gizmOS
+  Brand: CUSTOM-BRAND
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Inter:wght@300;400;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+
+@layer theme {
+  :root {
+    /* 1. Core Color Overrides */
+    --mcs-color-primary: #066fef;
+    --mcs-color-primary-hover: #0785ff;
+    --mcs-color-secondary: #00095b;
+    --mcs-color-tertiary: #fdfcf8;
+    --mcs-color-background: #00142b;
+    --mcs-color-surface: #f0f0f0;
+    --mcs-color-surface-hover: #cccccc;
+    --mcs-color-border: #00095b;
+    --mcs-color-text: #00142b;
+    --mcs-color-text-muted: #000c19;
+    --mcs-color-text-on-primary: #ffffff;
+
+    /* 2. Typography Overrides */
+    --mcs-font-display: 'Hanken Grotesk, sans-serif', sans-serif;
+    --mcs-font-body: 'Hanken Grotesk, sans-serif', sans-serif;
+    
+    /* 3. Shape Overrides */
+    --mcs-border-width: 2px;
+    --mcs-border-radius-sm: 2px;
+    --mcs-border-radius-md: 0px;
+    --mcs-border-radius-lg: 0px;
+    --mcs-border-radius-xl: 0px;
+    
+    /* 4. Shadow/Depth Overrides */
+    --mcs-shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --mcs-shadow-md: 0 8px 16px rgba(0,0,0,0.08);
+    --mcs-shadow-lg: 0 16px 24px rgba(0,0,0,0.1);
+  }
+}

@@ -1,0 +1,151 @@
+/* ==========================================================================
+   THEME OVERRIDES FOR LINCOLN MAIN BRAND - LUXURY EDITORIAL
+   ========================================================================== */
+
+/* 1. Local ProximaNova & LincolnMiller Fonts Declaration */
+@font-face {
+  font-family: 'LincolnFont';
+  src: url('assets/ProximaNova/ProximaNova-Reg-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LincolnFont';
+  src: url('assets/ProximaNova/ProximaNova-Light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LincolnFont';
+  src: url('assets/ProximaNova/ProximaNova-Sbold-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LincolnFont';
+  src: url('assets/ProximaNova/ProximaNova-Bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LincolnSerif';
+  src: url('assets/LincolnMiller/lincolnmillerb-semibold-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LincolnSerif';
+  src: url('assets/LincolnMiller/lincolnmillerb-lightitalic-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LincolnSerif';
+  src: url('assets/LincolnMiller/LincolnMillerBWGL-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LincolnSerif';
+  src: url('assets/LincolnMiller/LincolnMillerBWGL-Roman.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LincolnSerif';
+  src: url('assets/LincolnMiller/LincolnMillerBWGL-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer theme {
+  :root {
+    /* Colors (Obsidian Black, Charcoal, Champagne Gold, Warm White, Platinum) */
+    --mcs-color-primary: #0D0D0D;          /* Obsidian Black */
+    --mcs-color-primary-hover: #1A1A1A;    /* Lincoln Charcoal */
+    --mcs-color-secondary: #D3C2A0;        /* Champagne Gold */
+    --mcs-color-tertiary: #ECEBE7;         /* Platinum Card Surface */
+    --mcs-color-background: #FBFBF9;       /* Soft Warm White Background */
+    --mcs-color-surface: #FFFFFF;          /* Pure White Container */
+    --mcs-color-surface-hover: #ECEBE7;    /* Hovered surface */
+    --mcs-color-border: #D3C2A0;           /* Luxury Gold Outline Border */
+    --mcs-color-text: #1A1A1A;             /* Charcoal text */
+    --mcs-color-text-muted: #6E6D6A;       /* Muted grey */
+    --mcs-color-text-on-primary: #FFFFFF;  /* white on obsidian */
+
+    /* Typography settings */
+    --mcs-font-display: 'LincolnSerif', 'Georgia', serif;
+    --mcs-font-body: 'LincolnFont', 'Arial', sans-serif;
+
+    /* Shape & Borders (Editorial micro rounding) */
+    --mcs-border-width: 1px;
+    --mcs-border-radius-sm: 2px;
+    --mcs-border-radius-md: 2px;
+    --mcs-border-radius-lg: 2px;
+    --mcs-border-radius-xl: 2px;
+    
+    /* Subtle minimal shadows */
+    --mcs-shadow-sm: 0 1px 3px rgba(211,194,160,0.15);
+    --mcs-shadow-md: 0 6px 18px rgba(211,194,160,0.2);
+    --mcs-shadow-lg: 0 16px 36px rgba(211,194,160,0.25);
+    
+    /* Typography weights */
+    --mcs-font-weight-display: 300;       /* LincolnSerif Light */
+    --mcs-font-weight-headline: 300;      /* LincolnSerif Light */
+    
+    --mcs-line-height-display: 1.15;
+    --mcs-line-height-headline: 1.2;
+  }
+}
+
+/* ==========================================================================
+   LINCOLN MAIN BRAND-SPECIFIC COMPONENTS
+   ========================================================================== */
+@layer components {
+  /* Luxury vehicle card showcase */
+  .lincoln-luxury-card {
+    background-color: var(--mcs-color-surface);
+    border: 1px solid var(--mcs-color-tertiary);
+    padding: var(--mcs-spacing-md);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .lincoln-luxury-card:hover {
+    border-color: var(--mcs-color-secondary);
+    box-shadow: var(--mcs-shadow-md);
+  }
+
+  /* Thin luxury hairline border */
+  .lincoln-hairline {
+    height: 1px;
+    background-color: var(--mcs-color-tertiary);
+    margin-block: var(--mcs-spacing-sm);
+  }
+  .lincoln-hairline--gold {
+    background-color: var(--mcs-color-secondary);
+  }
+
+  /* Editorial titles */
+  .lincoln-serif-headline {
+    font-family: var(--mcs-font-display);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--mcs-color-primary);
+  }
+}

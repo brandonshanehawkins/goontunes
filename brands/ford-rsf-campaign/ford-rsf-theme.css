@@ -1,0 +1,67 @@
+/* ==========================================================================
+   THEME OVERRIDES FOR FORD RSF CAMPAIGN BRAND - HIGH-CONTRAST VIBE
+   ========================================================================== */
+
+@layer theme {
+  :root {
+    /* Colors (RSF Dark Grey/Black, Orange, White, and Slate) */
+    --mcs-color-primary: #FF5A00;          /* Campaign Orange */
+    --mcs-color-primary-hover: #e04f00;    /* Dark Orange */
+    --mcs-color-secondary: #121212;        /* Dark Grey/Black */
+    --mcs-color-tertiary: #FFFFFF;         /* White container */
+    --mcs-color-background: #121212;       /* Dark Background canvas */
+    --mcs-color-surface: #1E1E1E;          /* Dark Surface card */
+    --mcs-color-surface-hover: #292929;    /* Hovered surface */
+    --mcs-color-border: #FF5A00;           /* Orange borders */
+    --mcs-color-text: #FFFFFF;             /* White text on dark base */
+    --mcs-color-text-muted: #A0A0A0;       /* Slate captions */
+    --mcs-color-text-on-primary: #FFFFFF;  /* White on Orange */
+
+    /* Typography settings (Grotesque system fallback) */
+    --mcs-font-display: 'Impact', 'Arial Black', sans-serif;
+    --mcs-font-body: 'Helvetica Neue', 'Arial', sans-serif;
+
+    /* Shape & Borders (Strictly sharp 0px radius) */
+    --mcs-border-width: 2px;
+    --mcs-border-radius-sm: 0px;
+    --mcs-border-radius-md: 0px;
+    --mcs-border-radius-lg: 0px;
+    --mcs-border-radius-xl: 0px;
+    
+    /* Hard offset shadows for retro street aesthetic */
+    --mcs-shadow-sm: 2px 2px 0px rgba(255, 90, 0, 0.4);
+    --mcs-shadow-md: 4px 4px 0px #FF5A00;
+    --mcs-shadow-lg: 8px 8px 0px #FF5A00;
+    
+    /* Font weight overrides */
+    --mcs-font-weight-display: 900;
+    --mcs-font-weight-headline: 900;
+    
+    --mcs-line-height-display: 0.9;
+    --mcs-line-height-headline: 0.9;
+  }
+}
+
+/* ==========================================================================
+   FORD RSF BRAND-SPECIFIC COMPONENTS
+   ========================================================================== */
+@layer components {
+  /* High contrast raw offset card */
+  .ford-rsf-card {
+    background-color: var(--mcs-color-surface);
+    border: var(--mcs-border-width) solid var(--mcs-color-border);
+    padding: var(--mcs-spacing-md);
+    box-shadow: var(--mcs-shadow-md);
+  }
+  
+  /* Slanted highlight badge */
+  .ford-rsf-badge {
+    background-color: var(--mcs-color-primary);
+    color: #FFFFFF;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    display: inline-block;
+    transform: rotate(-2deg);
+  }
+}

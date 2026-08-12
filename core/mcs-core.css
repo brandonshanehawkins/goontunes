@@ -1,0 +1,652 @@
+@layer reset, base, layout, components, utilities;
+
+/* ==========================================================================
+   RESET LAYER
+   ========================================================================== */
+@layer reset {
+  /* Targeted reset to avoid * selector specificity issues with web components */
+  html, body, div, header, footer, main, section, article, aside, nav, 
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr,
+  ul, ol, li, dl, dt, dd, figure, figcaption,
+  table, thead, tbody, tfoot, tr, th, td,
+  form, fieldset, legend, label, input, textarea, button, select, option,
+  dialog, summary, details, canvas, audio, video {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ol, ul {
+    list-style: none;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  input, textarea, select, button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* ==========================================================================
+   BASE LAYER (Tokens & General Document Styles)
+   ========================================================================== */
+@layer base {
+  :root {
+    /* ----------------------------------------------------
+       Default Semantic CSS Variables (Fallbacks)
+       ---------------------------------------------------- */
+    --mcs-color-primary: #1a1a1a;
+    --mcs-color-primary-hover: #333333;
+    --mcs-color-secondary: #767676;
+    --mcs-color-tertiary: #d1d1d1;
+    --mcs-color-background: #ffffff;
+    --mcs-color-surface: #f7f7f7;
+    --mcs-color-surface-hover: #eeeeee;
+    --mcs-color-border: #e0e0e0;
+    --mcs-color-text: #111111;
+    --mcs-color-text-muted: #666666;
+    --mcs-color-text-on-primary: #ffffff;
+
+    /* Utility State Colors */
+    --mcs-color-error: #ba1a1a;
+    --mcs-color-error-bg: #ffdad6;
+    --mcs-color-success: #008282;
+    --mcs-color-success-bg: #e2fffe;
+    --mcs-color-warning: #feb71a;
+    --mcs-color-warning-bg: #fffceb;
+
+    /* Typography Defaults */
+    --mcs-font-display: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mcs-font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mcs-font-mono: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+
+    /* Responsive Font Scale using clamp() */
+    --mcs-font-size-display: clamp(2rem, 1.2rem + 4vw, 4rem);
+    --mcs-font-size-headline: clamp(1.5rem, 1.1rem + 2vw, 2.5rem);
+    --mcs-font-size-title-lg: 1.5rem;
+    --mcs-font-size-title-md: 1.25rem;
+    --mcs-font-size-body-lg: 1.125rem;
+    --mcs-font-size-body-md: 1rem;
+    --mcs-font-size-label-lg: 0.875rem;
+    --mcs-font-size-label-sm: 0.75rem;
+
+    --mcs-font-weight-display: 800;
+    --mcs-font-weight-headline: 700;
+    --mcs-font-weight-title: 600;
+    --mcs-font-weight-body: 400;
+    --mcs-font-weight-label: 600;
+
+    --mcs-line-height-display: 1.1;
+    --mcs-line-height-headline: 1.2;
+    --mcs-line-height-body: 1.6;
+
+    /* Spacing Units */
+    --mcs-spacing-unit: 8px;
+    --mcs-spacing-xs: calc(var(--mcs-spacing-unit) * 0.5); /* 4px */
+    --mcs-spacing-sm: calc(var(--mcs-spacing-unit) * 1.5); /* 12px */
+    --mcs-spacing-md: calc(var(--mcs-spacing-unit) * 3);   /* 24px */
+    --mcs-spacing-lg: calc(var(--mcs-spacing-unit) * 6);   /* 48px */
+    --mcs-spacing-xl: calc(var(--mcs-spacing-unit) * 10);  /* 80px */
+
+    /* Border & Radii */
+    --mcs-border-width: 1px;
+    --mcs-border-radius-sm: 4px;
+    --mcs-border-radius-md: 8px;
+    --mcs-border-radius-lg: 12px;
+    --mcs-border-radius-xl: 20px;
+    --mcs-border-radius-full: 9999px;
+
+    /* Shadows & Glows */
+    --mcs-shadow-color: rgba(0, 0, 0, 0.08);
+    --mcs-shadow-color-hover: rgba(0, 0, 0, 0.12);
+    --mcs-shadow-sm: 0 1px 3px var(--mcs-shadow-color);
+    --mcs-shadow-md: 0 4px 6px var(--mcs-shadow-color);
+    --mcs-shadow-lg: 0 10px 20px var(--mcs-shadow-color);
+    
+    /* Layout Max Width */
+    --mcs-max-width: 1200px;
+    --mcs-sidebar-width: 260px;
+    --mcs-header-height: 64px;
+  }
+
+  /* Document Base */
+  html {
+    background-color: var(--mcs-color-background);
+    color: var(--mcs-color-text);
+    font-family: var(--mcs-font-body);
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--mcs-color-background);
+    font-family: var(--mcs-font-body);
+    font-size: var(--mcs-font-size-body-md);
+    line-height: var(--mcs-line-height-body);
+    min-height: 100vh;
+  }
+
+  /* Typography hierarchies */
+  h1, .h1 {
+    font-family: var(--mcs-font-display);
+    font-size: var(--mcs-font-size-display);
+    font-weight: var(--mcs-font-weight-display);
+    line-height: var(--mcs-line-height-display);
+    text-wrap: balance;
+  }
+
+  h2, .h2 {
+    font-family: var(--mcs-font-display);
+    font-size: var(--mcs-font-size-headline);
+    font-weight: var(--mcs-font-weight-headline);
+    line-height: var(--mcs-line-height-headline);
+    text-wrap: balance;
+  }
+
+  h3, .h3 {
+    font-family: var(--mcs-font-display);
+    font-size: var(--mcs-font-size-title-lg);
+    font-weight: var(--mcs-font-weight-title);
+    line-height: var(--mcs-line-height-headline);
+  }
+
+  h4, h5, h6 {
+    font-family: var(--mcs-font-body);
+    font-size: var(--mcs-font-size-title-md);
+    font-weight: var(--mcs-font-weight-title);
+  }
+
+  p {
+    font-family: var(--mcs-font-body);
+    text-wrap: pretty;
+  }
+
+  p:not(:last-child) {
+    margin-block-end: var(--mcs-spacing-sm);
+  }
+
+  code, pre {
+    font-family: var(--mcs-font-mono);
+  }
+
+  /* Focus Indicator Styling (A11y best practice) */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--mcs-color-primary);
+    outline-offset: 3px;
+  }
+
+  /* Custom Scrollbar Styles for Layout Panels */
+  html, body, .mcs-shell__content, .mcs-sidebar, textarea {
+    scrollbar-width: thin;
+    scrollbar-color: var(--mcs-color-border) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--mcs-color-border);
+    border-radius: var(--mcs-border-radius-full);
+    border: 2px solid var(--mcs-color-background);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--mcs-color-primary);
+  }
+}
+
+/* ==========================================================================
+   LAYOUT LAYER (Grid, Flex systems, Layout Shells)
+   ========================================================================== */
+@layer layout {
+  .mcs-container {
+    max-width: var(--mcs-max-width);
+    margin-inline: auto;
+    padding-inline: var(--mcs-spacing-md);
+  }
+
+  /* Layout Shell (App Scaffold with sidebar and header) */
+  .mcs-shell {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .mcs-shell__header {
+    height: var(--mcs-header-height);
+    background-color: var(--mcs-color-surface);
+    border-block-end: var(--mcs-border-width) solid var(--mcs-color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--mcs-spacing-md);
+    flex-shrink: 0;
+  }
+
+  .mcs-shell__body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .mcs-shell__sidebar {
+    width: var(--mcs-sidebar-width);
+    background-color: var(--mcs-color-surface);
+    border-inline-end: var(--mcs-border-width) solid var(--mcs-color-border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow-y: auto;
+  }
+
+  .mcs-shell__content {
+    flex: 1;
+    overflow-y: auto;
+    background-color: var(--mcs-color-background);
+    padding: var(--mcs-spacing-md);
+  }
+
+  /* Flex Layout Blocks */
+  .mcs-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mcs-stack-gap, var(--mcs-spacing-sm));
+  }
+
+  .mcs-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--mcs-row-gap, var(--mcs-spacing-sm));
+    flex-wrap: wrap;
+  }
+
+  /* Responsive Grid (incorporates Container Queries) */
+  .mcs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--mcs-grid-item-min, 280px), 1fr));
+    gap: var(--mcs-grid-gap, var(--mcs-spacing-md));
+  }
+
+  /* Structural Centered Section (for documentation/articles) */
+  .mcs-article-layout {
+    max-width: 720px;
+    margin-inline: auto;
+    padding-block: var(--mcs-spacing-lg);
+  }
+}
+
+/* ==========================================================================
+   COMPONENTS LAYER (Panels, Buttons, Forms, Widgets)
+   ========================================================================== */
+@layer components {
+  /* Panels & Cards */
+  .mcs-panel {
+    background-color: var(--mcs-color-surface);
+    border: var(--mcs-border-width) solid var(--mcs-color-border);
+    border-radius: var(--mcs-border-radius-md);
+    padding: var(--mcs-spacing-md);
+    box-shadow: var(--mcs-shadow-sm);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .mcs-panel--interactive:hover {
+    box-shadow: var(--mcs-shadow-md);
+    border-color: var(--mcs-color-primary);
+  }
+
+  .mcs-panel__header {
+    margin-block-end: var(--mcs-spacing-sm);
+    padding-block-end: var(--mcs-spacing-xs);
+    border-block-end: calc(var(--mcs-border-width) * 1.5) solid var(--mcs-color-border);
+    font-weight: var(--mcs-font-weight-title);
+  }
+
+  /* Buttons */
+  .mcs-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--mcs-spacing-xs);
+    padding-block: var(--mcs-spacing-xs);
+    padding-inline: var(--mcs-spacing-md);
+    min-block-size: 40px; /* touch target accessibility size >= 24px */
+    border-radius: var(--mcs-border-radius-md);
+    font-weight: var(--mcs-font-weight-label);
+    font-size: var(--mcs-font-size-label-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+    border: var(--mcs-border-width) solid var(--mcs-color-border);
+    background-color: var(--mcs-color-surface);
+    color: var(--mcs-color-text);
+    box-shadow: var(--mcs-shadow-sm);
+  }
+
+  .mcs-button:hover:not(:disabled) {
+    background-color: var(--mcs-color-surface-hover);
+    border-color: var(--mcs-color-primary);
+  }
+
+  .mcs-button:active:not(:disabled) {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  .mcs-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .mcs-button--primary {
+    background-color: var(--mcs-color-primary);
+    border-color: var(--mcs-color-primary);
+    color: var(--mcs-color-text-on-primary);
+  }
+
+  .mcs-button--primary:hover:not(:disabled) {
+    background-color: var(--mcs-color-primary-hover);
+    border-color: var(--mcs-color-primary-hover);
+  }
+
+  .mcs-button--secondary {
+    background-color: var(--mcs-color-secondary);
+    border-color: var(--mcs-color-secondary);
+    color: var(--mcs-color-text-on-primary);
+  }
+
+  /* Form Elements */
+  .mcs-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mcs-spacing-xs);
+  }
+
+  .mcs-label {
+    font-family: var(--mcs-font-body);
+    font-size: var(--mcs-font-size-label-lg);
+    font-weight: var(--mcs-font-weight-label);
+    color: var(--mcs-color-text-muted);
+  }
+
+  .mcs-input, .mcs-textarea {
+    width: 100%;
+    padding-block: var(--mcs-spacing-xs);
+    padding-inline: var(--mcs-spacing-sm);
+    background-color: var(--mcs-color-background);
+    border: var(--mcs-border-width) solid var(--mcs-color-border);
+    border-radius: var(--mcs-border-radius-sm);
+    color: var(--mcs-color-text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .mcs-input:focus, .mcs-textarea:focus {
+    outline: none;
+    border-color: var(--mcs-color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .mcs-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  /* Custom Checkboxes and Radios (A11y appearance reset) */
+  .mcs-checkbox-wrapper, .mcs-radio-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--mcs-spacing-sm);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .mcs-checkbox, .mcs-radio {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: var(--mcs-border-width) solid var(--mcs-color-border);
+    background-color: var(--mcs-color-background);
+    transition: all 0.2s ease;
+    display: grid;
+    place-content: center;
+  }
+
+  .mcs-checkbox {
+    border-radius: var(--mcs-border-radius-sm);
+  }
+
+  .mcs-radio {
+    border-radius: var(--mcs-border-radius-full);
+  }
+
+  .mcs-checkbox::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: var(--mcs-color-text-on-primary);
+    clip-path: polygon(14% 44%, 0 58%, 38% 96%, 100% 14%, 86% 0%, 38% 68%);
+  }
+
+  .mcs-radio::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: var(--mcs-color-text-on-primary);
+  }
+
+  .mcs-checkbox:checked, .mcs-radio:checked {
+    background-color: var(--mcs-color-primary);
+    border-color: var(--mcs-color-primary);
+  }
+
+  .mcs-checkbox:checked::before, .mcs-radio:checked::before {
+    transform: scale(1);
+  }
+
+  /* Badges & Chips */
+  .mcs-badge {
+    display: inline-flex;
+    align-items: center;
+    padding-block: 2px;
+    padding-inline: 8px;
+    border-radius: var(--mcs-border-radius-full);
+    font-size: var(--mcs-font-size-label-sm);
+    font-weight: var(--mcs-font-weight-label);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--mcs-color-border);
+    color: var(--mcs-color-text);
+  }
+
+  .mcs-badge--primary {
+    background-color: var(--mcs-color-primary);
+    color: var(--mcs-color-text-on-primary);
+  }
+
+  .mcs-badge--error {
+    background-color: var(--mcs-color-error);
+    color: var(--mcs-color-text-on-primary);
+  }
+
+  .mcs-badge--success {
+    background-color: var(--mcs-color-success);
+    color: var(--mcs-color-text-on-primary);
+  }
+
+  .mcs-badge--warning {
+    background-color: var(--mcs-color-warning);
+    color: #000000;
+  }
+
+  /* Alert Calls */
+  .mcs-alert {
+    padding: var(--mcs-spacing-sm);
+    border-radius: var(--mcs-border-radius-md);
+    border: var(--mcs-border-width) solid var(--mcs-color-border);
+    display: flex;
+    gap: var(--mcs-spacing-sm);
+    align-items: flex-start;
+  }
+
+  .mcs-alert--error {
+    background-color: var(--mcs-color-error-bg);
+    border-color: var(--mcs-color-error);
+    color: var(--mcs-color-error);
+  }
+
+  .mcs-alert--success {
+    background-color: var(--mcs-color-success-bg);
+    border-color: var(--mcs-color-success);
+    color: var(--mcs-color-success);
+  }
+
+  .mcs-alert--warning {
+    background-color: var(--mcs-color-warning-bg);
+    border-color: var(--mcs-color-warning);
+    color: #7b5900;
+  }
+
+  /* Media Container with intrinsic proportions */
+  .mcs-media-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: var(--mcs-aspect-ratio, 16 / 9);
+    border-radius: var(--mcs-border-radius-md);
+    overflow: hidden;
+    background-color: var(--mcs-color-surface);
+  }
+
+  .mcs-media-container img,
+  .mcs-media-container video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Slide Presentation Deck Specific Classes */
+  .mcs-slide-deck {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--mcs-color-background);
+  }
+
+  .mcs-slide-viewport {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: var(--mcs-spacing-md);
+    overflow: hidden;
+  }
+
+  .mcs-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    max-width: 1024px;
+    max-height: 768px;
+    background-color: var(--mcs-color-surface);
+    border: var(--mcs-border-width) solid var(--mcs-color-border);
+    border-radius: var(--mcs-border-radius-lg);
+    padding: var(--mcs-spacing-lg);
+    box-shadow: var(--mcs-shadow-lg);
+    overflow: auto;
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .mcs-slide.mcs-slide--active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mcs-slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-block-start: var(--mcs-border-width) solid var(--mcs-color-border);
+    padding-block-start: var(--mcs-spacing-sm);
+    font-size: var(--mcs-font-size-label-sm);
+    color: var(--mcs-color-text-muted);
+    font-weight: var(--mcs-font-weight-label);
+  }
+}
+
+/* ==========================================================================
+   UTILITIES LAYER (One-off overrides, helper helpers)
+   ========================================================================== */
+@layer utilities {
+  .mcs-text-center { text-align: center; }
+  .mcs-text-right { text-align: right; }
+  
+  .mcs-font-display { font-family: var(--mcs-font-display); }
+  .mcs-font-mono { font-family: var(--mcs-font-mono); }
+  
+  .mcs-flex-1 { flex: 1; }
+  .mcs-w-full { width: 100%; }
+  
+  .mcs-margin-bottom-sm { margin-block-end: var(--mcs-spacing-sm); }
+  .mcs-margin-bottom-md { margin-block-end: var(--mcs-spacing-md); }
+  .mcs-margin-bottom-lg { margin-block-end: var(--mcs-spacing-lg); }
+
+  /* Utility to visually hide elements but keep accessible */
+  .mcs-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
