@@ -1,0 +1,115 @@
+/* ==========================================================================
+   THEME OVERRIDES FOR WPP PRODUCTION BRAND - VIBRANT ENERGY
+   ========================================================================== */
+
+/* 1. Local WPP Web Fonts Declaration */
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Regular.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Medium.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Bold.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer theme {
+  :root {
+    /* Colors (WPP Navy, White, WPP Grey, and Vibrant Accents) */
+    --mcs-color-primary: #000050;          /* WPP Navy */
+    --mcs-color-primary-hover: #2D37AE;    /* Production Cobalt */
+    --mcs-color-secondary: #FF0083;        /* Production Pink */
+    --mcs-color-tertiary: #F3F3F7;         /* WPP Grey surface */
+    --mcs-color-background: #FFFFFF;       /* Clean White Canvas */
+    --mcs-color-surface: #F3F3F7;          /* Grey surface panels */
+    --mcs-color-surface-hover: #EBEBEF;    /* hovered grey */
+    --mcs-color-border: #E5E5EA;           /* modern light grey border */
+    --mcs-color-text: #000050;             /* Navy text */
+    --mcs-color-text-muted: #2D37AE;       /* Cobalt secondary */
+    --mcs-color-text-on-primary: #FFFFFF;  /* white on navy */
+
+    /* WPP Production Branding Colors */
+    --wpp-prod-magenta: #FF00FF;
+    --wpp-prod-pink: #FF0083;
+    --wpp-prod-orange: #FF5C00;
+    --wpp-prod-yellow: #FFEF2C;
+    --wpp-prod-cobalt: #2D37AE;
+    --wpp-prod-chartreuse: #D4E240;
+    --wpp-prod-turquoise: #3AD0B3;
+
+    /* Typography settings */
+    --mcs-font-display: 'WPP', sans-serif;
+    --mcs-font-body: 'WPP', sans-serif;
+
+    /* Shape & Borders (Modern slight rounding) */
+    --mcs-border-width: 1px;
+    --mcs-border-radius-sm: 6px;
+    --mcs-border-radius-md: 10px;
+    --mcs-border-radius-lg: 16px;
+    --mcs-border-radius-xl: 24px;
+    
+    /* Modern soft overlay shadows */
+    --mcs-shadow-sm: 0 4px 12px rgba(0,0,0,0.03);
+    --mcs-shadow-md: 0 8px 24px rgba(0,0,0,0.06);
+    --mcs-shadow-lg: 0 20px 48px rgba(0,0,0,0.1);
+    
+    /* Typography settings */
+    --mcs-font-weight-display: 500;       /* WPP Medium */
+    --mcs-font-weight-headline: 500;      /* WPP Medium */
+    
+    --mcs-line-height-display: 1.1;
+    --mcs-line-height-headline: 1.1;
+  }
+}
+
+/* ==========================================================================
+   WPP PRODUCTION BRAND-SPECIFIC COMPONENTS
+   ========================================================================== */
+@layer components {
+  /* Dynamic Mesh Gradient Background Utilities */
+  .wpp-prod-gradient-mesh {
+    background: linear-gradient(135deg, var(--wpp-prod-magenta) 0%, var(--wpp-prod-pink) 35%, var(--wpp-prod-orange) 70%, var(--wpp-prod-yellow) 100%);
+    color: #FFFFFF;
+  }
+  
+  .wpp-prod-gradient-mesh-soft {
+    background: radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.15) 0%, rgba(255, 0, 131, 0.08) 45%, rgba(255, 92, 0, 0.05) 80%, rgba(255, 239, 44, 0.03) 100%);
+  }
+
+  /* Vibrant interactive overlays */
+  .wpp-prod-card-interactive {
+    border: 1px solid var(--mcs-color-border);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .wpp-prod-card-interactive:hover {
+    transform: translateY(-4px);
+    border-color: var(--wpp-prod-magenta);
+    box-shadow: 0 12px 30px rgba(255, 0, 131, 0.15);
+  }
+
+  /* Sentence case typography styling */
+  .wpp-prod-hero-text {
+    font-family: var(--mcs-font-display);
+    font-weight: 500;
+    letter-spacing: 0.015em;
+    line-height: 1.1;
+    text-transform: none; /* sentence case */
+  }
+}

@@ -1,0 +1,217 @@
+/* ==========================================================================
+   THEME OVERRIDES FOR WPP FORD SUB-BRAND - CREATIVE PRECISION
+   ========================================================================== */
+
+/* 1. Local WPP Web Fonts Declaration */
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Regular.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Medium.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Bold.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Black.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Light.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Thin.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer theme {
+  :root {
+    /* Colors (Twilight Navy, Desert Sand, Wimbledon White, and energetic accents) */
+    --mcs-color-primary: #00142E;          /* Twilight Navy */
+    --mcs-color-primary-hover: #0a254a;    /* Navy Focus */
+    --mcs-color-secondary: #EBDDAD;        /* Desert Sand */
+    --mcs-color-tertiary: #FDFCF8;         /* Wimbledon White (Core Surface) */
+    --mcs-color-background: #FDFCF8;       /* Clean Soft White Background */
+    --mcs-color-surface: #FFFFFF;          /* pure white container */
+    --mcs-color-surface-hover: #F6F4EB;    /* hovered off-white */
+    --mcs-color-border: #00142E;           /* Precise structural line */
+    --mcs-color-text: #00142E;             /* High readability Twilight Navy text */
+    --mcs-color-text-muted: #5A6B82;       /* Slate navy for captions */
+    --mcs-color-text-on-primary: #FFFFFF;  /* white on navy */
+
+    /* WPP Ford Accent Colors */
+    --wpp-ford-pink: #FFC7D2;
+    --wpp-ford-blue: #93DFE3;
+    --wpp-ford-aqua: #2BFFC1;
+    --wpp-ford-purple: #6A15D4;
+
+    /* Typography settings */
+    --mcs-font-display: 'WPP', 'Hanken Grotesk', sans-serif;
+    --mcs-font-body: 'WPP', 'Hanken Grotesk', sans-serif;
+
+    /* Shape & Borders (Strictly sharp 0px radius) */
+    --mcs-border-width: 1px;
+    --mcs-border-radius-sm: 0px;
+    --mcs-border-radius-md: 0px;
+    --mcs-border-radius-lg: 0px;
+    --mcs-border-radius-xl: 0px;
+    
+    /* Zero shadow - depth is strictly flat color block divisions */
+    --mcs-shadow-sm: none;
+    --mcs-shadow-md: none;
+    --mcs-shadow-lg: none;
+    
+    /* Font weight overrides */
+    --mcs-font-weight-display: 900;       /* WPP Black */
+    --mcs-font-weight-headline: 900;      /* WPP Black */
+    
+    /* Tight leading for heavy headlines */
+    --mcs-line-height-display: 0.85;
+    --mcs-line-height-headline: 0.85;
+  }
+
+  /* High contrast selection */
+  ::selection {
+    background-color: var(--mcs-color-secondary);
+    color: var(--mcs-color-primary);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--mcs-color-border);
+    border-radius: 0;
+  }
+}
+
+/* ==========================================================================
+   WPP FORD BRAND-SPECIFIC COMPONENTS
+   ========================================================================== */
+@layer components {
+  /* Visible background blueprint grids */
+  .wpp-ford-blueprint-grid {
+    background-image: 
+      linear-gradient(to right, rgba(235, 221, 173, 0.4) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(235, 221, 173, 0.4) 1px, transparent 1px);
+    background-size: 64px 64px;
+    border: 1px solid var(--mcs-color-border);
+  }
+
+  /* Eyebrows: WPP Medium, ALL CAPS, tracking 200 (letter-spacing 0.2em) */
+  .wpp-ford-eyebrow {
+    font-family: var(--mcs-font-display);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: var(--mcs-font-size-label-sm);
+    color: var(--mcs-color-primary);
+    margin-bottom: var(--mcs-spacing-xs);
+    display: inline-block;
+  }
+
+  /* Heavy Headlines */
+  .wpp-ford-headline {
+    font-family: var(--mcs-font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.85;
+    letter-spacing: 0;
+    color: var(--mcs-color-primary);
+  }
+
+  /* Accent Highlight Box behind single words */
+  .wpp-ford-accent-word {
+    background-color: var(--mcs-color-secondary);
+    padding-inline: 0.2em;
+    display: inline-block;
+  }
+  .wpp-ford-accent-word--pink { background-color: var(--wpp-ford-pink); }
+  .wpp-ford-accent-word--blue { background-color: var(--wpp-ford-blue); }
+  .wpp-ford-accent-word--aqua { background-color: var(--wpp-ford-aqua); }
+  .wpp-ford-accent-word--purple { background-color: var(--wpp-ford-purple); color: #FFF; }
+
+  /* Outline divider with end dot */
+  .wpp-ford-divider {
+    height: 1px;
+    background-color: var(--mcs-color-border);
+    position: relative;
+    margin-block: var(--mcs-spacing-md);
+  }
+  .wpp-ford-divider::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -3px;
+    width: 7px;
+    height: 7px;
+    background-color: var(--mcs-color-primary);
+  }
+
+  /* Structural Card Panel */
+  .wpp-ford-panel {
+    background-color: var(--mcs-color-tertiary);
+    border: 1px solid var(--mcs-color-border);
+    padding: var(--mcs-spacing-md);
+    position: relative;
+  }
+  .wpp-ford-panel--interactive:hover {
+    background-color: #FFFFFF;
+    outline: 1px solid var(--mcs-color-border);
+    outline-offset: 4px;
+  }
+
+  /* Big stat layout box */
+  .wpp-ford-stat {
+    display: flex;
+    flex-direction: column;
+    padding: var(--mcs-spacing-md);
+    border: 1px solid var(--mcs-color-border);
+    background-color: var(--mcs-color-surface);
+  }
+  .wpp-ford-stat__number {
+    font-size: clamp(3rem, 1.5rem + 5vw, 6rem);
+    font-weight: 900;
+    line-height: 0.8;
+    color: var(--mcs-color-primary);
+  }
+  .wpp-ford-stat__label {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: var(--mcs-font-size-label-sm);
+    margin-top: 12px;
+    color: var(--mcs-color-text-muted);
+  }
+}

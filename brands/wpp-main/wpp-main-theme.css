@@ -1,0 +1,128 @@
+/* ==========================================================================
+   THEME OVERRIDES FOR WPP MAIN BRAND - CORPORATE PLAYBOOK
+   ========================================================================== */
+
+/* 1. Local WPP Web Fonts Declaration */
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Regular.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Medium.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Bold.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Black.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Light.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WPP';
+  src: url('assets/wpp-webfonts/WPP-Thin.woff2') format('woff2'),
+       url('assets/wpp-webfonts/WPP-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer theme {
+  :root {
+    /* Colors (WPP Navy, WPP Cream, WPP White, and tints) */
+    --mcs-color-primary: #000050;          /* WPP Navy */
+    --mcs-color-primary-hover: #0a1e78;    /* Tint 90 */
+    --mcs-color-secondary: #FAFAF0;        /* WPP Cream */
+    --mcs-color-tertiary: #FFFFFF;         /* WPP White */
+    --mcs-color-background: #FFFFFF;       /* Background canvas */
+    --mcs-color-surface: #FAFAF0;          /* Card surface */
+    --mcs-color-surface-hover: #f1f1e1;    /* Hovered surface */
+    --mcs-color-border: #6464D2;           /* Tint 70 */
+    --mcs-color-text: #000050;             /* Navy text */
+    --mcs-color-text-muted: #323CA0;       /* Tint 80 */
+    --mcs-color-text-on-primary: #FFFFFF;  /* white on navy */
+
+    /* Typography settings */
+    --mcs-font-display: 'WPP', sans-serif;
+    --mcs-font-body: 'WPP', sans-serif;
+
+    /* Shape & Borders (Soft 4px radius) */
+    --mcs-border-width: 1px;
+    --mcs-border-radius-sm: 4px;
+    --mcs-border-radius-md: 4px;
+    --mcs-border-radius-lg: 4px;
+    --mcs-border-radius-xl: 4px;
+    
+    /* Subtle layout shadows */
+    --mcs-shadow-sm: 0 2px 8px rgba(0,0,80,0.06);
+    --mcs-shadow-md: 0 4px 16px rgba(0,0,80,0.08);
+    --mcs-shadow-lg: 0 10px 24px rgba(0,0,80,0.1);
+    
+    /* Font weights */
+    --mcs-font-weight-display: 300;       /* WPP Light/Thin */
+    --mcs-font-weight-headline: 300;      /* WPP Light */
+    
+    --mcs-line-height-display: 1.1;
+    --mcs-line-height-headline: 1.1;
+  }
+}
+
+/* ==========================================================================
+   WPP MAIN BRAND-SPECIFIC COMPONENTS
+   ========================================================================== */
+@layer components {
+  /* Gridded dot pattern background helper */
+  .wpp-main-dot-grid {
+    background-image: radial-gradient(var(--mcs-color-border) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-color: var(--mcs-color-background);
+  }
+
+  /* The Dot device */
+  .wpp-main-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--mcs-color-primary);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  /* Sentence case typography styling */
+  .wpp-main-headline {
+    font-family: var(--mcs-font-display);
+    font-weight: 300;
+    text-transform: none; /* sentence case */
+    color: var(--mcs-color-primary);
+  }
+}

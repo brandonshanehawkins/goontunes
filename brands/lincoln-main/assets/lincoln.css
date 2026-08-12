@@ -1,0 +1,55 @@
+@font-face {
+	font-family: ProximaNovaRgBold;
+	font-style: normal;
+	font-weight: 700;
+	src: url('//www.lincoln.com/shared/fonts/LincolnFonts/ProximaNova/ProximaNova-Bold-webfont.woff') format("woff")
+}
+
+@font-face {
+	font-family: ProximaNovaLight;
+	font-style: normal;
+	font-weight: 300;
+	src: url('//www.lincoln.com/shared/fonts/LincolnFonts/ProximaNova/ProximaNova-Light-webfont.woff') format("woff")
+}
+
+@font-face {
+	font-family: ProximaNovaRgRegular;
+	font-style: normal;
+	font-weight: 400;
+	src: url('//www.lincoln.com/shared/fonts/LincolnFonts/ProximaNova/ProximaNova-Reg-webfont.woff') format("woff")
+}
+
+@font-face {
+	font-family: ProximaNovaSBold;
+	font-style: normal;
+	font-weight: 550;
+	src: url('//www.lincoln.com/shared/fonts/LincolnFonts/ProximaNova/ProximaNova-Sbold-webfont.woff') format("woff")
+}
+
+@font-face {
+	font-family: LincolnBold;
+	font-style: normal;
+	font-weight: 700;
+	src: url('//www.lincoln.com/shared/fonts/LincolnFonts/ProximaNova/ProximaNova-Bold-webfont.woff') format("woff")
+}
+
+@font-face {
+	font-family: LincolnLight;
+	font-style: normal;
+	font-weight: 300;
+	src: url('//www.lincoln.com/shared/fonts/LincolnFonts/ProximaNova/ProximaNova-Light-webfont.woff') format("woff")
+}
+
+@font-face {
+	font-family: LincolnRegular;
+	font-style: normal;
+	font-weight: 400;
+	src: url('//www.lincoln.com/shared/fonts/LincolnFonts/ProximaNova/ProximaNova-Reg-webfont.woff') format("woff")
+}
+
+@font-face {
+	font-family: LincolnMedium;
+	font-style: normal;
+	font-weight: 550;
+	src: url('//www.lincoln.com/shared/fonts/LincolnFonts/ProximaNova/ProximaNova-Sbold-webfont.woff') format("woff")
+}

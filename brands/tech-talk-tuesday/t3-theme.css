@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&family=Hanken+Grotesk:wght@400;600;700&display=swap');
+
+/* ==========================================================================
+   THEME OVERRIDES FOR TECH TALK TUESDAY (T3) - TOY-CORE TECH (DARK MODE)
+   ========================================================================== */
+@layer theme {
+  :root {
+    /* Colors */
+    --mcs-color-primary: #00a8a8;          /* Vibrant active teal */
+    --mcs-color-primary-hover: #00ffff;    /* Glowing electric cyan */
+    --mcs-color-secondary: #ffb81c;        /* High-energy golden yellow */
+    --mcs-color-tertiary: #d2691e;         /* Warm terracotta accent */
+    --mcs-color-background: #071212;       /* Deep slate-teal black */
+    --mcs-color-surface: #0d1f1f;          /* Surface containers */
+    --mcs-color-surface-hover: #142d2d;    /* Hovered surface container */
+    --mcs-color-border: #006a6a;           /* Strong machine layout outline */
+    --mcs-color-text: #e2fffe;             /* Primary text: glowing paper */
+    --mcs-color-text-muted: #709595;       /* Muted technical text */
+    --mcs-color-text-on-primary: #000000;  /* High contrast dark text on yellow/cyan */
+
+    /* Utility overrides for dark mode contrast */
+    --mcs-color-error: #ff716c;
+    --mcs-color-error-bg: #4a0d0d;
+    --mcs-color-success: #00ffff;
+    --mcs-color-success-bg: #003838;
+    --mcs-color-warning: #ffb81c;
+    --mcs-color-warning-bg: #463300;
+
+    /* Typography settings */
+    --mcs-font-display: 'Sora', sans-serif;
+    --mcs-font-body: 'Hanken Grotesk', sans-serif;
+
+    /* Shape & Borders */
+    --mcs-border-width: 2px;
+    --mcs-border-radius-sm: 4px;
+    --mcs-border-radius-md: 8px;
+    --mcs-border-radius-lg: 16px;
+    
+    /* Tactile offsets instead of fuzzy shadows (Neo-brutalist / Toy-core) */
+    --mcs-shadow-sm: 2px 2px 0 var(--mcs-color-border);
+    --mcs-shadow-md: 4px 4px 0 var(--mcs-color-border);
+    --mcs-shadow-lg: 8px 8px 0 var(--mcs-color-border);
+  }
+
+  /* Specific dark-mode scrollbar styling for T3 */
+  html, body, .mcs-shell__content, .mcs-sidebar, textarea {
+    scrollbar-color: var(--mcs-color-border) var(--mcs-color-background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--mcs-color-border);
+    border-radius: var(--mcs-border-radius-md);
+    border: 2px solid var(--mcs-color-background);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--mcs-color-primary);
+  }
+}
+
+/* ==========================================================================
+   T3 BRAND-SPECIFIC COMPONENTS
+   ========================================================================== */
+@layer components {
+  /* T3 Speech Bubble (for mascot dialogue and chatbot callouts) */
+  .t3-bubble {
+    background-color: var(--mcs-color-secondary);
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: var(--mcs-border-radius-lg);
+    padding: var(--mcs-spacing-sm) var(--mcs-spacing-md);
+    position: relative;
+    box-shadow: 4px 4px 0 #000000;
+    font-weight: 600;
+    margin-block-end: var(--mcs-spacing-sm);
+  }
+
+  .t3-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 24px;
+    border-width: 12px 12px 0;
+    border-style: solid;
+    border-color: #000000 transparent;
+    display: block;
+    width: 0;
+  }
+
+  .t3-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 25px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: var(--mcs-color-secondary) transparent;
+    display: block;
+    width: 0;
+  }
+
+  /* Branded panel top texture (aluminum metal ribbing simulation) */
+  .t3-panel-textured {
+    position: relative;
+    padding-top: calc(var(--mcs-spacing-md) + 8px);
+  }
+
+  .t3-panel-textured::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: var(--mcs-spacing-md);
+    right: var(--mcs-spacing-md);
+    height: 4px;
+    background: repeating-linear-gradient(
+      to right,
+      var(--mcs-color-border) 0px,
+      var(--mcs-color-border) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+    opacity: 0.5;
+  }
+
+  /* Segmented mechanical progress bar */
+  .t3-progress-bar {
+    display: flex;
+    gap: 4px;
+    background: var(--mcs-color-surface-hover);
+    padding: 4px;
+    border-radius: var(--mcs-border-radius-sm);
+    border: var(--mcs-border-width) solid var(--mcs-color-border);
+  }
+
+  .t3-progress-bar__segment {
+    flex: 1;
+    height: 12px;
+    background-color: var(--mcs-color-surface);
+    border-radius: 2px;
+  }
+
+  .t3-progress-bar__segment--filled {
+    background-color: var(--mcs-color-primary);
+  }
+
+  .t3-progress-bar__segment--warning {
+    background-color: var(--mcs-color-secondary);
+  }
+
+  /* Crosshair Target bracket overlays (for target design aesthetics) */
+  .t3-target-frame {
+    position: relative;
+  }
+
+  .t3-target-frame::before,
+  .t3-target-frame::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-color: var(--mcs-color-primary-hover);
+    border-style: solid;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .t3-target-frame::before {
+    top: 8px;
+    left: 8px;
+    border-width: 2px 0 0 2px;
+  }
+
+  .t3-target-frame::after {
+    bottom: 8px;
+    right: 8px;
+    border-width: 0 2px 2px 0;
+  }
+
+  /* TTT Button Overrides for flat hard offset */
+  .mcs-button {
+    border: var(--mcs-border-width) solid #000000;
+    box-shadow: 2px 2px 0 #000000;
+  }
+
+  .mcs-button:hover:not(:disabled) {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 #000000;
+  }
+
+  .mcs-button:active:not(:disabled) {
+    transform: translate(1px, 1px);
+    box-shadow: none;
+  }
+}
