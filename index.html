@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +8,47 @@
   <link rel="stylesheet" href="core/mcs-core.css">
   <link rel="stylesheet" href="brands/tech-talk-tuesday/t3-theme.css">
   <style>
-    body { margin: 0; min-height: 100vh; }
-    .launcher-content { padding: var(--mcs-spacing-lg); max-width: 1200px; margin-inline: auto; }
-    .launcher-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--mcs-spacing-md); }
-    .launcher-list { display: grid; gap: var(--mcs-spacing-md); }
-    .launcher-note { color: var(--mcs-color-text-muted); font-size: var(--mcs-font-size-label-sm); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    .launcher-content {
+      padding: var(--mcs-spacing-lg);
+      max-width: 1200px;
+      margin-inline: auto;
+    }
+
+    .launcher-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--mcs-spacing-md);
+    }
+
+    .launcher-list {
+      display: grid;
+      gap: var(--mcs-spacing-md);
+    }
+
+    .launcher-note {
+      color: var(--mcs-color-text-muted);
+      font-size: var(--mcs-font-size-label-sm);
+    }
   </style>
 </head>
+
 <body>
   <div class="mcs-shell">
     <header class="mcs-shell__header">
       <div class="mcs-row" style="--mcs-row-gap: 12px; align-items: center;">
-        <div style="width: 36px; height: 36px; background-color: var(--mcs-color-primary); border-radius: var(--mcs-border-radius-full); display:grid; place-content:center; color:var(--mcs-color-text-on-primary); font-weight:800;">▶</div>
+        <div
+          style="width: 36px; height: 36px; background-color: var(--mcs-color-primary); border-radius: var(--mcs-border-radius-full); display:grid; place-content:center; color:var(--mcs-color-text-on-primary); font-weight:800;">
+          ▶</div>
         <div>
-          <h1 class="mcs-font-display" style="font-size: var(--mcs-font-size-title-md); margin: 0;">Local Page Launcher</h1>
-          <p class="launcher-note" style="margin:0;">A simple entry page for your local HTML docs. Click a tile to open the corresponding file.</p>
+          <h1 class="mcs-font-display" style="font-size: var(--mcs-font-size-title-md); margin: 0;">Local Page Launcher
+          </h1>
+          <p class="launcher-note" style="margin:0;">A simple entry page for your local HTML docs. Click a tile to open
+            the corresponding file.</p>
         </div>
       </div>
     </header>
@@ -32,20 +59,21 @@
           <div class="mcs-stack">
 
             <a class="mcs-panel mcs-panel--interactive" href="look-at-thi-guy/index.html" target="_blank">
-              <h3 class="mcs-panel__header">index</h3>
+              <h3 class="mcs-panel__header">look-at-this-guy</h3>
               <p>Local HTML file</p>
             </a>
-      
+
 
             <a class="mcs-panel mcs-panel--interactive" href="lofe/index.html" target="_blank">
-              <h3 class="mcs-panel__header">index</h3>
+              <h3 class="mcs-panel__header">lofe</h3>
               <p>Local HTML file</p>
             </a>
-      
+
           </div>
         </div>
       </section>
     </main>
   </div>
 </body>
+
 </html>
