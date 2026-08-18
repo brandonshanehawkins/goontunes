@@ -8,13 +8,13 @@
     /* Colors */
     --mcs-color-primary: #00a8a8;          /* Vibrant active teal */
     --mcs-color-primary-hover: #00ffff;    /* Glowing electric cyan */
-    --mcs-color-secondary: #ffb81c;        /* High-energy golden yellow */
+    --mcs-color-secondary: #b11d91;        /* High-energy golden yellow */
     --mcs-color-tertiary: #d2691e;         /* Warm terracotta accent */
     --mcs-color-background: #071212;       /* Deep slate-teal black */
-    --mcs-color-surface: #0d1f1f;          /* Surface containers */
-    --mcs-color-surface-hover: #142d2d;    /* Hovered surface container */
+    --mcs-color-surface: #030e45;          /* Surface containers */
+    --mcs-color-surface-hover: #29c4c4;    /* Hovered surface container */
     --mcs-color-border: #006a6a;           /* Strong machine layout outline */
-    --mcs-color-text: #e2fffe;             /* Primary text: glowing paper */
+    --mcs-color-text: #b19421;             /* Primary text: glowing paper */
     --mcs-color-text-muted: #709595;       /* Muted technical text */
     --mcs-color-text-on-primary: #000000;  /* High contrast dark text on yellow/cyan */
 

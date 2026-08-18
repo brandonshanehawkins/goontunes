@@ -91,7 +91,7 @@
     --mcs-font-size-display: clamp(2rem, 1.2rem + 4vw, 4rem);
     --mcs-font-size-headline: clamp(1.5rem, 1.1rem + 2vw, 2.5rem);
     --mcs-font-size-title-lg: 1.5rem;
-    --mcs-font-size-title-md: 1.25rem;
+    --mcs-font-size-title-md: 1.0rem;
     --mcs-font-size-body-lg: 1.125rem;
     --mcs-font-size-body-md: 1rem;
     --mcs-font-size-label-lg: 0.875rem;
@@ -299,8 +299,8 @@
   /* Responsive Grid (incorporates Container Queries) */
   .mcs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--mcs-grid-item-min, 280px), 1fr));
-    gap: var(--mcs-grid-gap, var(--mcs-spacing-md));
+    grid-template-columns: repeat(auto-fill, minmax(var(--mcs-grid-item-min, 150px), 1fr));
+    gap: var(--mcs-grid-gap, var(--mcs-spacing-sm));
   }
 
   /* Structural Centered Section (for documentation/articles) */
