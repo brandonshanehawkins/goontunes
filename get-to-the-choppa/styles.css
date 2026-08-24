@@ -19,7 +19,7 @@
 
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--bg);
+  background-color: transparent;
   color: var(--text);
   min-height: 100vh;
   display: flex;
@@ -28,6 +28,28 @@ body {
   padding: 16px;
   overflow-x: hidden;
   position: relative;
+}
+
+/* Full-screen video background */
+.background-video,
+#background-video,
+video.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: -2;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* Ambient glow background */
